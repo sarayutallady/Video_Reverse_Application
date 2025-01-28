@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0097B2; /* Light teal background */
+            background-color: #0097B2; 
             margin: 0;
             padding: 0;
             display: flex;
@@ -15,15 +15,15 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            position: relative; /* Set relative positioning for the body */
+            position: relative; 
         }
 
         .logo {
-            position: absolute; /* Absolute positioning for the logo */
-            top: 20px; /* Distance from the top */
-            left: 20px; /* Distance from the left */
-            width: 150px; /* Set a width for the logo */
-            height: auto; /* Maintain aspect ratio */
+            position: absolute; 
+            top: 20px; 
+            left: 20px;
+            width: 150px; 
+            height: auto; 
         }
 
         h1 {
@@ -34,7 +34,7 @@
         }
 
         form {
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            background-color: rgba(255, 255, 255, 0.9); 
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -44,53 +44,53 @@
             width: 300px;
         }
 
-        /* Style for the file input */
+        
         input[type="file"] {
-            display: none; /* Hide default file input */
+            display: none; 
         }
 
         .file-upload-btn {
-            background-color: #4a9b9b; /* Darker teal color */
+            background-color: #4a9b9b; 
             color: white;
             border: none;
-            padding: 10px 20px; /* Add padding for a button-like appearance */
+            padding: 10px 20px; 
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.3s;
-            margin: 10px 0; /* Space above button */
-            width: 100%; /* Full width button */
+            margin: 10px 0; 
+            width: 100%; 
         }
 
         .file-upload-btn:hover {
-            background-color: #3e8787; /* Darker teal on hover */
-            transform: scale(1.05); /* Slightly enlarge on hover */
+            background-color: #3e8787;
+            transform: scale(1.05); 
         }
 
         .file-upload-btn:active {
-            transform: scale(0.95); /* Slightly shrink on click */
+            transform: scale(0.95); 
         }
 
         button {
-            background-color: #64b6b6; /* Light teal color */
+            background-color: #64b6b6; 
             color: white;
             border: none;
-            padding: 12px 20px; /* Increased padding for larger buttons */
+            padding: 12px 20px; 
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px; /* Larger font size */
+            font-size: 16px; 
             transition: background-color 0.3s, transform 0.3s;
-            margin-top: 10px; /* Space above button */
-            width: 100%; /* Full width button */
+            margin-top: 10px; 
+            width: 100%; 
         }
 
         button:hover {
-            background-color: #4a9b9b; /* Darker teal on hover */
-            transform: scale(1.05); /* Slightly enlarge on hover */
+            background-color: #4a9b9b;
+            transform: scale(1.05); 
         }
 
         button:active {
-            transform: scale(0.95); /* Slightly shrink on click */
+            transform: scale(0.95); 
         }
 
         #result {
@@ -100,22 +100,21 @@
 
         video {
             margin-top: 10px;
-            border: 2px solid #64b6b6; /* Light teal border for the video */
+            border: 2px solid #64b6b6; 
             border-radius: 8px;
-            width: 100%; /* Responsive */
-            max-width: 600px; /* Limit max width */
+            width: 100%; 
+            max-width: 600px; 
         }
 
-        /* Loading spinner */
-        .loader {
-            border: 5px solid rgba(255, 255, 255, 0.5); /* Light border */
-            border-top: 5px solid #4a9b9b; /* Darker teal color */
-            border-radius: 50%; /* Circular shape */
-            width: 50px; /* Width of the spinner */
-            height: 50px; /* Height of the spinner */
-            animation: spin 1s linear infinite; /* Spin animation */
-            margin-top: 10px; /* Space above the spinner */
-            display: none; /* Initially hidden */
+        loader {
+            border: 5px solid rgba(255, 255, 255, 0.5); 
+            border-top: 5px solid #4a9b9b; 
+            border-radius: 50%; 
+            width: 50px;
+            height: 50px; 
+            animation: spin 1s linear infinite; 
+            margin-top: 10px; 
+            display: none;
         }
 
         @keyframes spin {
@@ -135,7 +134,7 @@
             <input type="file" name="video" accept="video/*" required>
         </label>
         <button type="submit">Upload and Reverse</button>
-        <div class="loader" id="loading-spinner"></div> <!-- Loading Spinner -->
+        <div class="loader" id="loading-spinner"></div> 
     </form>
     <div id="result"></div>
     
@@ -145,7 +144,7 @@
             
             const formData = new FormData(this);
             const loader = document.getElementById('loading-spinner');
-            loader.style.display = 'block'; // Show the loading spinner
+            loader.style.display = 'block'; 
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/process-video', true);
@@ -164,7 +163,7 @@
                     const videoElement = document.createElement('video');
                     videoElement.controls = true;
                     videoElement.src = url;
-                    videoElement.width = 600; // Optional: set width of video
+                    videoElement.width = 600; 
                     resultDiv.appendChild(videoElement);
                 } else {
                     alert("Error: " + xhr.statusText);
