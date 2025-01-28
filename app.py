@@ -4,7 +4,7 @@ from reverse_video import reverse_video  # Import your model
 
 app = Flask(__name__)
 
-# Create directories for uploads and outputs if they don't exist
+
 os.makedirs("uploads", exist_ok=True)
 os.makedirs("outputs", exist_ok=True)
 
@@ -20,23 +20,23 @@ def process_video():
     
     video_file = request.files['video']
     
-    # Define input and output paths
+    
     input_path = os.path.join("uploads", video_file.filename)
     output_path = os.path.join("outputs", f"reversed_{video_file.filename}")
 
-    # Save uploaded video to input path
+    
     try:
         video_file.save(input_path)
     except Exception as e:
         return jsonify({"error": f"Failed to save video: {str(e)}"}), 500
 
-    # Call the reverse_video model to process the file
+    
     try:
         reverse_video(input_path, output_path)
     except Exception as e:
         return jsonify({"error": f"Processing error: {str(e)}"}), 500
     
-    # Return the output file to the frontend
+    
     try:
         return send_file(output_path, as_attachment=True)
     except Exception as e:
